@@ -9,11 +9,16 @@ jobs:
         with:
           haxe-version: 4.3.4
 
-      - name: Install Haxelib
+      - name: Install Haxelib and Dependencies
         run: |
           mkdir C:\haxelib
           haxelib setup C:\haxelib
           haxelib install hxcpp > NUL
+          haxelib install lime > NUL
+          haxelib install openfl > NUL
+          haxelib install format > NUL
+          haxelib install actuate > NUL
+          # Add other libs here if you need them
           .\setup\windows.bat
         shell: cmd
 
